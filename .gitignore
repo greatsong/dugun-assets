@@ -1,0 +1,8 @@
+_hold/
+.DS_Store
+__pycache__/
+*.pyc
+catalog.json.tmp
+공개_목록.md
+sheets/_gallery_pc.jpg
+sheets/_gallery_mobile.jpg

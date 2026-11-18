@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """갤러리(index.html)용 가벼운 미리보기를 만든다: thumbs/<id>.webp (긴 변 480px)
-투명 배경 그림은 옅은 크림색 바탕 위에 얹는다. 이미 있고 원본보다 새것이면 건너뛴다.
+투명 배경 그림은 투명한 채로 둔다(갤러리가 바탕색을 깐다). 이미 있고 원본보다 새것이면 건너뛴다.
   python3 tools/thumbs.py          # 빠진 것 · 바뀐 것만
   python3 tools/thumbs.py --force  # 전부 다시
 """
@@ -9,7 +9,6 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _common import REPO, load, path_of
 
 LONG = 480
-CREAM = (255, 249, 236)
 
 
 def main():
@@ -28,16 +27,13 @@ def main():
             continue
         im = Image.open(src)
         im.load()
-        if im.mode in ("RGBA", "LA", "P"):
-            im = im.convert("RGBA")
-            bg = Image.new("RGB", im.size, CREAM)
-            bg.paste(im, mask=im.split()[-1])
-            im = bg
-        else:
-            im = im.convert("RGB")
+        alpha = im.mode in ("RGBA", "LA", "P")
+        im = im.convert("RGBa" if alpha else "RGB")            # 투명 그림은 미리 곱한 알파로 줄여 가장자리 검은 테를 막는다
         s = LONG / max(im.size)
         if s < 1:
             im = im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))), Image.LANCZOS)
+        if alpha:
+            im = im.convert("RGBA")
         im.save(dst, "WEBP", quality=80, method=6)
         made += 1
     gone = [f for f in os.listdir(out_dir) if f.endswith(".webp") and f not in keep]

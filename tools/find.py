@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""낱말로 그림 찾기 — 우리말 이름 · 태그 · id · 프롬프트에서 찾아 후보 표와 임시 미리보기 시트를 낸다.
+"""낱말로 그림 · 소리 찾기 — 우리말 이름 · 태그 · id · 프롬프트(소리는 상황 · 분위기 · 만든 법)에서 찾아 후보 표와 임시 미리보기 시트를 낸다.
   python3 tools/find.py 얼음 밤하늘
   python3 tools/find.py 교실 --kind 배경 --top 12
   python3 tools/find.py stage --sheet /tmp/stage.jpg
@@ -11,7 +11,7 @@ from _common import load, sheet
 
 ap = argparse.ArgumentParser()
 ap.add_argument("words", nargs="+")
-ap.add_argument("--kind", help="배경 · 소품 · 재질 · 효과 · 캐릭터 · 아이콘")
+ap.add_argument("--kind", help="배경 · 소품 · 재질 · 효과 · 캐릭터 · 아이콘 · 음악 · 효과음")
 ap.add_argument("--top", type=int, default=20)
 ap.add_argument("--sheet", help="시트 저장 자리(기본: 임시 폴더)")
 ap.add_argument("--no-sheet", action="store_true")
@@ -26,7 +26,7 @@ for e in load():
         wl = w.lower(); s = 0
         if wl in tags.lower(): s += 3
         if wl in e["id"].lower() or any(wl in x.lower() for x in e.get("aliases", [])): s += 2
-        if wl in e["prompt"].lower(): s += 1
+        if wl in " ".join(str(e.get(k, "")) for k in ("prompt", "situation", "mood", "made_by")).lower(): s += 1
         score += s; matched += s > 0
     if score: hits.append((matched, score, e))
 hits.sort(key=lambda h: (-h[0], -h[1], h[2]["id"]))
@@ -38,6 +38,7 @@ for m, s, e in hits:
     print(f"{s:>4}  {e['id']:34s} {e['kind']:4s} {e['title'][:28]:28s} {e['file']}")
 if not a.no_sheet:
     out = a.sheet or os.path.join(tempfile.gettempdir(), "dugun_find_" + "_".join(a.words)[:40] + ".jpg")
-    if sheet([h[2] for h in hits], out, cols=5, cell=220, title="찾기: " + " ".join(a.words)):
+    imgs = [h[2] for h in hits if "w" in (h[2].get("size") or {})]      # 소리는 시트에 넣지 않는다
+    if imgs and sheet(imgs, out, cols=5, cell=220, title="찾기: " + " ".join(a.words)):
         print("미리보기 시트:", out)
 print("편 폴더로 가져오기: python3 tools/use.py <id …> --to <주제>")

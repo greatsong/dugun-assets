@@ -20,6 +20,7 @@ def main():
     cat = load()
     keep, made = set(), 0
     for e in cat:
+        if "w" not in (e.get("size") or {}): continue      # 소리(음악 · 효과음)는 미리보기 그림이 없다
         src = path_of(e)
         dst = os.path.join(out_dir, e["id"] + ".webp")
         keep.add(os.path.basename(dst))

@@ -3,7 +3,7 @@
 **갤러리(그림 보고 바로 내려받기): https://greatsong.github.io/dugun-assets/**
 
 **두근두근러닝**은 캐릭터가 연기로 개념을 설명하는 데이터 · AI · 과학 수업 영상 시리즈입니다.
-이 저장소에는 영상을 만들면서 그린 **배경 · 소품 · 재질 · 효과 · 캐릭터 · 아이콘 213장**을 모아 두었습니다.
+이 저장소에는 영상을 만들면서 그린 **배경 · 소품 · 재질 · 효과 · 캐릭터 · 아이콘 213장**과, 코드로 직접 만든 **음악 18곡 · 효과음 12개**를 모아 두었습니다.
 수업 자료, 발표, 학습지, 교육용 영상에 **비상업적 목적이라면 출처를 밝히고 자유롭게** 쓸 수 있습니다.
 
 ## 어떤 그림이 있나요?
@@ -15,6 +15,8 @@
 | 효과 | `effects/` | 4 | `sheets/effects.jpg` |
 | 캐릭터 | `characters/` | 26 | `sheets/characters.jpg` |
 | 아이콘 | `icons/` | 12 | `sheets/icons.jpg` |
+| 음악 | `audio/music/` | 18 | 갤러리에서 바로 듣기 |
+| 효과음 | `audio/sfx/` | 12 | 갤러리에서 바로 듣기 |
 
 ### 캐릭터
 ![캐릭터](sheets/characters.jpg)
@@ -31,6 +33,14 @@
 ![아이콘](sheets/icons.jpg)
 
 같은 대상을 여러 버전으로 그린 그림(무대 5가지, 교실 3가지 등)은 `sheets/_variants.jpg`에 모아 두었습니다.
+
+## 음악 · 효과음 `audio/`
+외부 음원이나 샘플 없이 **파이썬(numpy) 코드로 직접 합성**했습니다. 파일마다 **m4a(AAC 192 kbps)와 mp3(192 kbps)** 두 가지가 있습니다.
+- 끝 화면 음악 A~I(15초): 영상 끝에서 다음 편을 추천하는 화면에 쓰는 곡. 편마다 반짝 소리 자리만 다른 판이 있어, 대표 판 하나씩 넣었습니다.
+- 배경 음악 '건반' A1 · A2 · B1 · B2(48초 + 꼬리 4초): 대사 밑에 작게 까는 곡. 48초마다 겹쳐 이어 붙이면 끊김이 없습니다.
+- 극장판 「모델이란 무엇인가」 음악 5 · 효과음 12: 제작 중인 편의 **후보**입니다(`status: "후보"`).
+- 만든 코드: `tools/sound/`(설명은 `tools/sound/README.md`).
+- 목록에서 소리 항목은 그림의 `prompt` · `size.w/h` 대신 `length`(초) · `tempo` · `key` · `made_by`(만든 법) · `status`(쓰임/후보) · `used_in`(쓰인 영상) · `situation`(상황) · `mood`(분위기) · `loop`(이어 붙여 되풀이할 수 있는지) · `files`(m4a · mp3)를 씁니다.
 
 ## 목록 `catalog.json`
 그림 하나마다 정보가 한 항목씩 들어 있습니다.
@@ -61,13 +71,13 @@ python3 tools/sheets.py                   # 미리보기 시트 새로 만들기
 
 ## 갤러리
 `index.html`(+ `gallery.css` · `gallery.js`)이 `catalog.json`을 읽어 그림을 보여 줍니다. 미리보기는 `thumbs/`(긴 변 480px webp), 원본은 누를 때만 받습니다.
-그리드 / 문서(표) 보기, 여러 장 골라 ZIP으로 받기, 종류별 ZIP, 목록 CSV · JSON 받기가 됩니다. 전체 ZIP은 GitHub의 저장소 ZIP 주소로 받습니다.
+그리드 / 문서(표) 보기, 음악 · 효과음 바로 듣기(▶), 여러 개 골라 ZIP으로 받기, 종류별 ZIP, 목록 CSV · JSON 받기가 됩니다. 전체 ZIP은 GitHub의 저장소 ZIP 주소로 받습니다.
 ZIP 묶기에는 JSZip 3.10.1(`vendor/`, MIT 라이선스 — `vendor/JSZIP_LICENSE.markdown`)을 씁니다.
 
 ## 출처 표시
 쓸 때 아래처럼 밝혀 주세요.
 
-> 그림: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets
+> 그림(또는 음악 · 효과음): 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets
 
 ## 라이선스
 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.ko) (저작자 표시 · 비영리). 자세한 내용은 `LICENSE`를 보세요.

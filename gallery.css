@@ -143,3 +143,28 @@ pre { white-space: pre-wrap; word-break: break-word; font: 500 14px/1.55 ui-mono
   .v-info { max-height: none; overflow: visible; }
   .nav { width: 44px; height: 56px; }
 }
+
+/* 소리 카드 */
+.card.snd { grid-column: span 2; padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 10px; }
+.card.snd .chk { left: auto; right: 8px; }
+.snd-top { display: flex; align-items: center; gap: 12px; padding-right: 48px; }
+.snd-name { font-size: 16px; font-weight: 800; line-height: 1.35; }
+.snd-name .k, .doc .nm .k { display: block; font-size: 14px; font-weight: 700; color: var(--ink2); margin-top: 2px; }
+.cand { color: #9a4b00; }
+button.play {
+  flex: none; width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--blue); color: #fff; font-size: 20px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(37, 99, 214, .3);
+}
+button.play[aria-pressed="true"] { background: #e2553f; box-shadow: 0 2px 6px rgba(226, 85, 63, .35); }
+.doc button.play { width: 44px; height: 44px; font-size: 17px; }
+.snd-meta { display: grid; grid-template-columns: 72px 1fr; gap: 4px 8px; margin: 0; font-size: 15px; }
+.snd-meta dt { font-weight: 800; color: var(--ink2); }
+.snd-meta dd { margin: 0; line-height: 1.45; }
+.snd-dl, .dl2 { display: flex; gap: 6px; flex-wrap: wrap; }
+.snd-dl .pill { flex: 1 1 auto; justify-content: center; min-height: 44px; }
+.dl2 .pill { white-space: nowrap; }
+.grid { grid-auto-flow: dense; }
+.grid.snd-only { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.grid.snd-only .card.snd { grid-column: auto; }
+@media (max-width: 760px) { .grid.snd-only { grid-template-columns: 1fr; } }

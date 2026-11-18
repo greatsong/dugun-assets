@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>두근두근러닝 그림 모음</title>
-<meta name="description" content="두근두근러닝 수업 영상에 쓴 배경 · 소품 · 캐릭터 그림을 보고 내려받는 곳 (CC BY-NC 4.0)">
+<meta name="description" content="두근두근러닝 수업 영상에 쓴 배경 · 소품 · 캐릭터 그림과 음악 · 효과음을 보고 듣고 내려받는 곳 (CC BY-NC 4.0)">
 <link rel="stylesheet" href="gallery.css">
 <script src="vendor/jszip.min.js"></script>
 </head>
@@ -12,7 +12,7 @@
 <header class="top">
   <div class="wrap">
     <h1>두근두근러닝 그림 모음</h1>
-    <p class="lead">수업 영상을 만들며 그린 배경 · 소품 · 캐릭터 그림입니다. 그림을 누르면 크게 보고 다운로드할 수 있어요.</p>
+    <p class="lead">수업 영상을 만들며 그린 배경 · 소품 · 캐릭터 그림과, 코드로 직접 만든 음악 · 효과음입니다. 그림을 누르면 크게 보고, ▶를 누르면 바로 들을 수 있어요.</p>
     <p class="lic">비상업 목적 · 출처 표시 「두근두근러닝(greatsong)」 — <a href="https://github.com/greatsong/dugun-assets/blob/main/LICENSE">CC BY-NC 4.0</a>
       · <a href="https://github.com/greatsong/dugun-assets">GitHub 저장소</a></p>
   </div>
@@ -22,8 +22,8 @@
   <div class="wrap">
     <div class="bar-row">
       <label class="search">
-        <span class="sr">그림 검색</span>
-        <input id="q" type="search" placeholder="그림 검색 (예: 교실, 얼음, 별, 선생님)" autocomplete="off">
+        <span class="sr">검색</span>
+        <input id="q" type="search" placeholder="검색 (예: 교실, 얼음, 별, 마림바, 효과음)" autocomplete="off">
       </label>
       <div class="tools">
         <span class="stats" id="stats">불러오는 중…</span>
@@ -44,28 +44,28 @@
     </div>
     <div class="bar-row sel-row">
       <span class="sel-count" id="selCount">0장 선택</span>
-      <button type="button" class="pill" id="selAll">보이는 그림 전체 선택</button>
+      <button type="button" class="pill" id="selAll">보이는 것 전체 선택</button>
       <button type="button" class="pill" id="selClear">선택 해제</button>
       <button type="button" class="pill blue" id="selZip">선택 다운로드 (ZIP)</button>
-      <span class="hint">한 번에 50장 이하로 고르는 게 좋아요.</span>
+      <span class="hint">한 번에 50개 이하로 고르는 게 좋아요.</span>
     </div>
   </div>
 </div>
 
 <main class="wrap">
-  <p class="empty" id="empty" hidden>찾는 그림이 없어요. 다른 말로 검색해 보세요.</p>
+  <p class="empty" id="empty" hidden>찾는 것이 없어요. 다른 말로 검색해 보세요.</p>
   <ul class="grid" id="grid"></ul>
   <div class="table-wrap" id="tableWrap" hidden>
     <table class="doc">
-      <thead><tr><th>그림</th><th>이름</th><th>파일 이름</th><th>종류</th><th>검색어</th><th>쓰인 영상</th><th>다운로드</th></tr></thead>
+      <thead><tr><th>그림</th><th>이름</th><th>파일 이름</th><th>종류</th><th>검색어</th><th>쓰인 영상</th><th>상황</th><th>분위기</th><th>다운로드</th></tr></thead>
       <tbody id="docBody"></tbody>
     </table>
   </div>
 </main>
 
 <footer class="foot wrap">
-  <p>그림을 쓸 때는 출처를 이렇게 적어 주세요: <b>그림: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets</b></p>
-  <p>이 그림은 AI로 그리고 사람이 골라 다듬었습니다.</p>
+  <p>그림 · 소리를 쓸 때는 출처를 이렇게 적어 주세요: <b>그림: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets</b></p>
+  <p>이 그림은 AI로 그리고 사람이 골라 다듬었습니다. 음악 · 효과음은 외부 음원이나 샘플 없이 코드로 합성했습니다.</p>
   <p>아이콘이 필요하다면 → <a href="https://greatsong.github.io/info-class-svg/">교육용 SVG 아이콘 라이브러리</a></p>
 </footer>
 

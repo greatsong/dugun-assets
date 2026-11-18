@@ -1,7 +1,7 @@
-/* 두근두근러닝 그림 모음 — catalog.json을 읽어 그리드 · 문서 보기, 크게 보기, 묶어 받기(ZIP) */
+/* 두근두근러닝 그림 모음 — catalog.json을 읽어 그리드 · 문서 보기, 크게 보기, 소리 듣기, 묶어 받기(ZIP) */
 (function () {
   "use strict";
-  var KINDS = ["배경", "소품", "캐릭터", "아이콘", "재질", "효과"];
+  var KINDS = ["배경", "소품", "캐릭터", "아이콘", "재질", "효과", "음악", "효과음"];
   var all = [], shown = [], kind = "전체", view = "grid", cur = -1;
   var selected = new Set();
   var $ = function (id) { return document.getElementById(id); };
@@ -14,7 +14,31 @@
   function base(e) { return e.file.split("/").pop(); }
   function thumb(e) { return "thumbs/" + e.id + ".webp"; }
   function mb(b) { return b >= 1048576 ? (b / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(b / 1024)) + " KB"; }
-  function hay(e) { return (e.title + " " + (e.tags || []).join(" ") + " " + e.id + " " + e.kind).toLowerCase(); }
+  function hay(e) { return [e.title, (e.tags || []).join(" "), e.id, e.kind, e.situation, e.mood, (e.used_in || []).join(" ")].join(" ").toLowerCase(); }
+  function isSnd(e) { return e.kind === "음악" || e.kind === "효과음"; }
+  function secs(s) { s = Number(s) || 0; if (s < 10) return s.toFixed(1) + "초"; var m = Math.floor(s / 60), r = Math.round(s % 60); return m ? m + "분 " + (r ? r + "초" : "") : r + "초"; }
+  function used(e) { return (e.used_in || []).length ? e.used_in.join(", ") : "아직 쓰인 영상 없음"; }
+  function sndDl(e, cls) {
+    return '<a class="' + cls + '" href="' + esc(e.files.m4a) + '" download="' + esc(e.files.m4a.split("/").pop()) + '">M4A 받기</a>' +
+      '<a class="' + cls + '" href="' + esc(e.files.mp3) + '" download="' + esc(e.files.mp3.split("/").pop()) + '">MP3 받기</a>';
+  }
+  /* 소리는 한 번에 하나만 */
+  var player = new Audio(); player.preload = "none"; var playing = null;
+  function setBtns() {
+    document.querySelectorAll("button.play").forEach(function (b) {
+      var on = b.dataset.id === playing;
+      b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚" : "▶";
+      b.setAttribute("aria-label", (on ? "멈추기: " : "듣기: ") + b.dataset.title);
+    });
+  }
+  function playToggle(id) {
+    var e = all.find(function (x) { return x.id === id; }); if (!e) return;
+    if (playing === id) { player.pause(); playing = null; setBtns(); return; }
+    player.pause(); player.src = e.files.m4a; playing = id; setBtns();
+    var pr = player.play(); if (pr && pr.catch) pr.catch(function () { playing = null; setBtns(); });
+  }
+  player.addEventListener("ended", function () { playing = null; setBtns(); });
+  function playBtn(e) { return '<button type="button" class="play" data-id="' + esc(e.id) + '" data-title="' + esc(e.title) + '" aria-pressed="false" aria-label="듣기: ' + esc(e.title) + '">▶</button>'; }
 
   fetch("catalog.json").then(function (r) { return r.json(); }).then(function (d) {
     all = d;
@@ -22,7 +46,7 @@
     buildKinds();
     render();
     var h = decodeURIComponent(location.hash.slice(1));
-    if (h) { var i = shown.findIndex(function (e) { return e.id === h; }); if (i >= 0) open(i); }
+    if (h) { var i = shown.findIndex(function (e) { return e.id === h; }); if (i >= 0 && !isSnd(shown[i])) open(i); }
   }).catch(function () { $("stats").textContent = "목록을 불러오지 못했어요."; });
 
   function buildKinds() {
@@ -59,7 +83,7 @@
 
   function render() {
     shown = filter();
-    $("stats").textContent = shown.length === all.length ? "총 " + all.length + "장" : shown.length + " / " + all.length + "장";
+    $("stats").textContent = shown.length === all.length ? "총 " + all.length + "개" : shown.length + " / " + all.length + "개";
     $("empty").hidden = shown.length > 0;
     var kz = $("kindZip");
     if (kind === "전체") kz.hidden = true;
@@ -67,12 +91,19 @@
       var ks = all.filter(function (e) { return e.kind === kind; });
       var bytes = ks.reduce(function (s, e) { return s + e.size.bytes; }, 0);
       kz.hidden = false;
-      kz.textContent = kind + " " + ks.length + "장 다운로드 (ZIP, " + mb(bytes) + ")";
+      kz.textContent = kind + " " + ks.length + (isSnd(ks[0]) ? "개" : "장") + " 다운로드 (ZIP, " + mb(bytes) + ")";
     }
     if (view === "grid") {
       $("tableWrap").hidden = true; $("grid").hidden = false;
+      $("grid").classList.toggle("snd-only", shown.length > 0 && shown.every(isSnd));
       $("grid").innerHTML = shown.map(function (e, i) {
         var s = selected.has(e.id);
+        if (isSnd(e)) return '<li class="card snd' + (s ? " sel" : "") + '" data-i="' + i + '">' +
+          '<label class="chk" title="선택에 담기"><input type="checkbox" aria-label="' + esc(e.title) + ' 고르기"' + (s ? " checked" : "") + "></label>" +
+          '<div class="snd-top">' + playBtn(e) + '<div class="snd-name">' + esc(e.title) +
+          '<span class="k">' + esc(e.kind) + " · " + secs(e.length) + (e.status === "후보" ? ' · <span class="cand">후보</span>' : "") + "</span></div></div>" +
+          '<dl class="snd-meta"><dt>쓰인 영상</dt><dd>' + esc(used(e)) + '</dd><dt>상황</dt><dd>' + esc(e.situation) + '</dd><dt>분위기</dt><dd>' + esc(e.mood) + "</dd></dl>" +
+          '<div class="snd-dl">' + sndDl(e, "pill") + "</div></li>";
         return '<li class="card' + (s ? " sel" : "") + '" data-i="' + i + '">' +
           '<label class="chk" title="선택에 담기"><input type="checkbox" aria-label="' + esc(e.title) + ' 고르기"' + (s ? " checked" : "") + "></label>" +
           '<a class="mini" href="' + esc(e.file) + '" download="' + esc(base(e)) + '" title="바로 다운로드" aria-label="' + esc(e.title) + ' 바로 다운로드">⬇</a>' +
@@ -83,16 +114,24 @@
       $("grid").hidden = true; $("tableWrap").hidden = false;
       $("docBody").innerHTML = shown.map(function (e, i) {
         var s = selected.has(e.id);
+        if (isSnd(e)) return '<tr data-i="' + i + '"' + (s ? ' class="sel"' : "") + '>' +
+          '<td><div class="im"><input type="checkbox" aria-label="' + esc(e.title) + ' 고르기"' + (s ? " checked" : "") + '>' + playBtn(e) + "</div></td>" +
+          '<td class="nm">' + esc(e.title) + '<span class="k">' + secs(e.length) + (e.status === "후보" ? " · 후보" : "") + '</span></td><td class="fn">' + esc(e.file) + '</td>' +
+          '<td><span class="badge">' + esc(e.kind) + '</span></td>' +
+          '<td class="tg">' + esc((e.tags || []).join(", ")) + '</td>' +
+          '<td class="tg">' + esc(used(e)) + '</td><td class="tg">' + esc(e.situation) + '</td><td class="tg">' + esc(e.mood) + '</td>' +
+          '<td><div class="dl2">' + sndDl(e, "pill rowdl") + '</div></td></tr>';
         return '<tr data-i="' + i + '"' + (s ? ' class="sel"' : "") + '>' +
           '<td><div class="im"><input type="checkbox" aria-label="' + esc(e.title) + ' 고르기"' + (s ? " checked" : "") + '>' +
           '<button type="button" class="open" aria-label="' + esc(e.title) + ' 크게 보기"><img src="' + thumb(e) + '" alt="" loading="lazy"></button></div></td>' +
           '<td class="nm">' + esc(e.title) + '</td><td class="fn">' + esc(e.file) + '</td>' +
           '<td><span class="badge">' + esc(e.kind) + '</span></td>' +
           '<td class="tg">' + esc((e.tags || []).join(", ")) + '</td>' +
-          '<td class="tg">' + esc((e.used_in || []).join(", ")) + '</td>' +
+          '<td class="tg">' + esc((e.used_in || []).join(", ")) + '</td><td></td><td></td>' +
           '<td><a class="pill rowdl" href="' + esc(e.file) + '" download="' + esc(base(e)) + '">다운로드</a></td></tr>';
       }).join("");
     }
+    setBtns();
     updateSel();
   }
 
@@ -100,6 +139,7 @@
     var row = ev.target.closest("[data-i]"); if (!row) return;
     var i = +row.dataset.i;
     if (ev.target.matches('input[type="checkbox"]')) { toggle(shown[i].id, ev.target.checked); return; }
+    var pb = ev.target.closest("button.play"); if (pb) { playToggle(pb.dataset.id); return; }
     if (ev.target.closest(".open")) open(i);
   }
   $("grid").addEventListener("click", onListClick);
@@ -115,7 +155,7 @@
     updateSel();
   }
   function updateSel() {
-    $("selCount").textContent = selected.size + "장 선택";
+    $("selCount").textContent = selected.size + "개 선택";
     $("selZip").disabled = selected.size === 0;
     $("selClear").disabled = selected.size === 0;
   }
@@ -123,8 +163,8 @@
   $("selClear").onclick = function () { selected.clear(); render(); };
   $("selZip").onclick = function () {
     var es = all.filter(function (e) { return selected.has(e.id); });
-    if (es.length > 80 && !confirm(es.length + "장은 용량이 커서 오래 걸릴 수 있어요. 계속할까요?")) return;
-    zip(es, "dugun-assets-선택-" + es.length + "장.zip");
+    if (es.length > 80 && !confirm(es.length + "개는 용량이 커서 오래 걸릴 수 있어요. 계속할까요?")) return;
+    zip(es, "dugun-assets-선택-" + es.length + "개.zip");
   };
   $("kindZip").onclick = function () {
     var es = all.filter(function (e) { return e.kind === kind; });
@@ -136,10 +176,10 @@
     if (typeof JSZip === "undefined") { alert("ZIP으로 묶지 못했어요. 한 장씩 다운로드해 주세요."); return; }
     var z = new JSZip(), done = 0, fail = 0;
     var box = $("progress");
-    $("pTitle").textContent = "다운로드 준비 중… (" + es.length + "장)";
+    $("pTitle").textContent = "다운로드 준비 중… (" + es.length + "개)";
     $("pFill").style.width = "0%"; $("pText").textContent = "0 / " + es.length;
     box.hidden = false;
-    z.file("출처_LICENSE.txt", "그림: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets\n" +
+    z.file("출처_LICENSE.txt", "그림 · 소리: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets\n" +
       "비상업 목적으로 쓸 수 있고, 쓸 때는 위 출처를 밝혀 주세요.\nhttps://creativecommons.org/licenses/by-nc/4.0/deed.ko\n");
     var chain = Promise.resolve();
     es.forEach(function (e) {
@@ -162,13 +202,15 @@
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
       box.hidden = true;
-      if (fail) alert(fail + "장을 다운로드하지 못했어요. 잠시 뒤 다시 해 보세요.");
+      if (fail) alert(fail + "개를 다운로드하지 못했어요. 잠시 뒤 다시 해 보세요.");
     }).catch(function () { box.hidden = true; alert("ZIP으로 묶지 못했어요."); });
   }
 
   /* 크게 보기 */
   var dlg = $("view");
-  function open(i) {
+  function open(i, dir) {
+    dir = dir || 1;
+    while (i >= 0 && i < shown.length && isSnd(shown[i])) i += dir;      // 소리는 카드에서 바로 듣는다(크게 보기 없음)
     if (i < 0 || i >= shown.length) return;
     cur = i;
     var e = shown[i];
@@ -205,13 +247,13 @@
   function close() { dlg.close(); }
   dlg.addEventListener("close", function () { history.replaceState(null, "", location.pathname + location.search); });
   $("v-close").onclick = close;
-  $("v-prev").onclick = function () { open(cur - 1); };
+  $("v-prev").onclick = function () { open(cur - 1, -1); };
   $("v-next").onclick = function () { open(cur + 1); };
   $("v-sel").onchange = function () { toggle(shown[cur].id, this.checked); };
   dlg.addEventListener("click", function (ev) { if (ev.target === dlg) close(); });
   dlg.addEventListener("keydown", function (ev) {
     if (ev.target.tagName === "INPUT" && ev.target.type !== "checkbox") return;
-    if (ev.key === "ArrowLeft") { ev.preventDefault(); open(cur - 1); }
+    if (ev.key === "ArrowLeft") { ev.preventDefault(); open(cur - 1, -1); }
     else if (ev.key === "ArrowRight") { ev.preventDefault(); open(cur + 1); }
   });
   $("v-varlist").onclick = function (ev) {

@@ -6414,5 +6414,1379 @@
    "topics/_series/assets/s2_planet10.png"
   ],
   "note": "프롬프트: topics/_series/assets.json"
+ },
+ {
+  "id": "music_outro_a_marimba",
+  "file": "audio/music/music_outro_a_marimba.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_a_marimba.m4a",
+   "mp3": "audio/music/music_outro_a_marimba.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 A · 항해 마림바",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "마림바",
+   "베이스",
+   "셰이커"
+  ],
+  "length": 15.0,
+  "tempo": 108,
+  "key": "다 장조",
+  "made_by": "직접 합성: pipeline/outro_synth.py 후보 A — 악기: 마림바 · 베이스 · 셰이커",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근러닝 시즌 0 (10편)",
+   "두근두근 수학 (14편)",
+   "과학 · 물리 (4편)",
+   "통계 (베이즈 · 몬티 홀, 2편)",
+   "곤충 (1편)",
+   "스튜디오 이야기 (2편)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "밝고 통통 튀는 마림바, 바다를 건너는 듯 경쾌함",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 368467,
+   "mp3_bytes": 361196
+  },
+  "sha1": "51fac61b3172b3f500c2a760d0d263f57c8fca32",
+  "wav_sha1": "1d7350db892832b3abc64673f9c49eed470bb33b",
+  "aliases": [
+   "build/outro_music/cand_A.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_b_musicbox_waltz",
+  "file": "audio/music/music_outro_b_musicbox_waltz.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_b_musicbox_waltz.m4a",
+   "mp3": "audio/music/music_outro_b_musicbox_waltz.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 B · 오르골 왈츠",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "오르골",
+   "화음 바탕"
+  ],
+  "length": 15.0,
+  "tempo": 84,
+  "key": "바 장조",
+  "made_by": "직접 합성: pipeline/outro_synth.py 후보 B — 악기: 오르골 · 화음 바탕",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근 영어 중학 문법 (10편)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "포근하고 아기자기한 3박자 오르골 왈츠",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 365984,
+   "mp3_bytes": 361196
+  },
+  "sha1": "7850169a1c3a6d59e49fb30dbdffbf7a16d2a936",
+  "wav_sha1": "e2516618726cdeae6ceb3c6b8ddfaf7702f09e0b",
+  "aliases": [
+   "build/outro_music/cand_B.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_c_ukulele_walk",
+  "file": "audio/music/music_outro_c_ukulele_walk.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_c_ukulele_walk.m4a",
+   "mp3": "audio/music/music_outro_c_ukulele_walk.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 C · 우쿨렐레 산책",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "우쿨렐레",
+   "휘파람",
+   "손가락 튕기기"
+  ],
+  "length": 15.0,
+  "tempo": 116,
+  "key": "사 장조",
+  "made_by": "직접 합성: pipeline/outro_synth.py 후보 C — 악기: 우쿨렐레 · 휘파람 · 손가락 튕기기",
+  "status": "후보",
+  "used_in": [],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "우쿨렐레와 휘파람으로 가볍게 걷는 산책길",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 364066,
+   "mp3_bytes": 361196
+  },
+  "sha1": "13e1c0a7d7553eec9b2d2ca5f1fc1fb700468dc3",
+  "wav_sha1": "4dd6747b42c9b2b56923b44f2d5a252c1f424606",
+  "aliases": [
+   "build/outro_music/cand_C.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_d_lofi_keys",
+  "file": "audio/music/music_outro_d_lofi_keys.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_d_lofi_keys.m4a",
+   "mp3": "audio/music/music_outro_d_lofi_keys.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 D · 로파이 건반",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "일렉트릭 피아노",
+   "느긋한 비트"
+  ],
+  "length": 15.0,
+  "tempo": 80,
+  "key": "내림 마 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 D — 악기: 일렉트릭 피아노 · 느긋한 비트",
+  "status": "쓰임",
+  "used_in": [
+   "학교 교육계획 안내 영상 (선생님용, 1편)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "포근한 전자 피아노와 느긋한 비트, 차분함",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 377169,
+   "mp3_bytes": 361196
+  },
+  "sha1": "8b1708d904469da19745abcfca9cf95394a87e98",
+  "wav_sha1": "c910953eadb44df0b8f4b3a9683712a76082646e",
+  "aliases": [
+   "build/outro_music2/cand_D.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_e_pizzicato_steps",
+  "file": "audio/music/music_outro_e_pizzicato_steps.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_e_pizzicato_steps.m4a",
+   "mp3": "audio/music/music_outro_e_pizzicato_steps.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 E · 피치카토 발걸음",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "현악기 피치카토",
+   "피아노"
+  ],
+  "length": 15.0,
+  "tempo": 124,
+  "key": "라 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 E — 악기: 현악기 피치카토 · 피아노",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근러닝 시즌 1 (1편 「그래프 왜곡」)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "현을 통통 튕기는 소리, 또박또박 걷는 발걸음",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 369532,
+   "mp3_bytes": 361196
+  },
+  "sha1": "f128a4f2c930bd69fc61737cfa5240879b8f0719",
+  "wav_sha1": "998b663971bc6de7430ec9df86ba10ee93e5af5d",
+  "aliases": [
+   "build/outro_music2/cand_E.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_f_8bit_adventure",
+  "file": "audio/music/music_outro_f_8bit_adventure.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_f_8bit_adventure.m4a",
+   "mp3": "audio/music/music_outro_f_8bit_adventure.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 F · 8비트 모험",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "펄스파 선율",
+   "삼각파 베이스",
+   "잡음 북"
+  ],
+  "length": 15.0,
+  "tempo": 140,
+  "key": "가 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 F — 악기: 펄스파 선율 · 삼각파 베이스 · 잡음 북",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근 알고리즘 1편 「QR 코드 오류 정정」"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "신나고 경쾌한 옛 게임기 소리",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 371914,
+   "mp3_bytes": 361196
+  },
+  "sha1": "19203a2aaf5f7fe524dc34dcba905f1ee2277b89",
+  "wav_sha1": "8fcf4dd49fcd7b236ea331b6e887b257ec9bd009",
+  "aliases": [
+   "build/outro_music2/cand_F.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_g_sunny_guitar",
+  "file": "audio/music/music_outro_g_sunny_guitar.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_g_sunny_guitar.m4a",
+   "mp3": "audio/music/music_outro_g_sunny_guitar.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 G · 햇살 기타",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "어쿠스틱 기타",
+   "현",
+   "셰이커"
+  ],
+  "length": 15.0,
+  "tempo": 104,
+  "key": "마 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 G — 악기: 어쿠스틱 기타 · 현 · 셰이커",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근 음악 1편 「박자와 마디」"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "햇살처럼 따뜻한 기타 분산화음",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 367529,
+   "mp3_bytes": 361196
+  },
+  "sha1": "f617a98549eb5768cab5e6b8ada592eb4ff0bfae",
+  "wav_sha1": "abafc2a47102352173788b4d78d5d87d98609a48",
+  "aliases": [
+   "build/outro_music2/cand_G.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_h_fresh_synthpop",
+  "file": "audio/music/music_outro_h_fresh_synthpop.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_h_fresh_synthpop.m4a",
+   "mp3": "audio/music/music_outro_h_fresh_synthpop.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 H · 상쾌한 신스팝",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "킥",
+   "박수",
+   "패드",
+   "신스 벨"
+  ],
+  "length": 15.0,
+  "tempo": 122,
+  "key": "내림 가 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 H — 악기: 킥 · 박수 · 패드 · 신스 벨",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근러닝 시즌 2 (1편 「그레디언트 부스팅과 잔차」)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "상쾌하고 반짝이는 신스팝",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 373344,
+   "mp3_bytes": 361196
+  },
+  "sha1": "399c446abfc24a213f62580b454e84f62b17e36d",
+  "wav_sha1": "0d35e5612c1bf6a3133e63962c8069382fa397e7",
+  "aliases": [
+   "build/outro_music2/cand_H.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_outro_i_brass_march",
+  "file": "audio/music/music_outro_i_brass_march.m4a",
+  "files": {
+   "m4a": "audio/music/music_outro_i_brass_march.m4a",
+   "mp3": "audio/music/music_outro_i_brass_march.mp3"
+  },
+  "kind": "음악",
+  "title": "끝 화면 음악 I · 관악대 행진",
+  "tags": [
+   "끝 화면",
+   "다음 편 추천",
+   "15초",
+   "트럼펫",
+   "호른 · 튜바",
+   "작은북",
+   "글로켄슈필"
+  ],
+  "length": 15.0,
+  "tempo": 116,
+  "key": "내림 나 장조",
+  "made_by": "직접 합성: pipeline/outro_synth2.py 후보 I — 악기: 트럼펫 · 호른 · 튜바 · 작은북 · 글로켄슈필",
+  "status": "쓰임",
+  "used_in": [
+   "두근두근 야구 · 야구 규칙 (3편)"
+  ],
+  "situation": "영상 끝 15초, 다음 편을 추천하는 끝 화면. 왕관이 내려올 때 반짝, 다음 섬에 불이 켜질 때 종이 한 번 울린다",
+  "mood": "트럼펫이 앞장서는 씩씩한 관악대 행진",
+  "loop": false,
+  "loop_note": "15초 한 곡(끝에서 0.6초 잦아듦). 되풀이용이 아님",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/outro_synth.py",
+   "tools/sound/outro_synth2.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 372058,
+   "mp3_bytes": 361196
+  },
+  "sha1": "7376be93ce136d81a4c6587adbb7e44027535d1e",
+  "wav_sha1": "20bbdbd197f964e6dc72cdf692f6d10064842336",
+  "aliases": [
+   "build/outro_music2/cand_I.wav"
+  ],
+  "note": "편마다 반짝 소리 자리만 다른 판이 있어, 대표 판(시안으로 만든 판) 하나만 넣었다."
+ },
+ {
+  "id": "music_bgm_keys_a1",
+  "file": "audio/music/music_bgm_keys_a1.m4a",
+  "files": {
+   "m4a": "audio/music/music_bgm_keys_a1.m4a",
+   "mp3": "audio/music/music_bgm_keys_a1.mp3"
+  },
+  "kind": "음악",
+  "title": "배경 음악 · 건반 A1 (가벼운 판)",
+  "tags": [
+   "배경 음악",
+   "대사 밑",
+   "건반",
+   "로파이",
+   "이어 붙이기"
+  ],
+  "length": 52.0,
+  "tempo": 80,
+  "key": "내림 마 장조",
+  "made_by": "직접 합성: pipeline/bgm.py (곡 'keys') 토막 A1",
+  "status": "쓰임",
+  "used_in": [
+   "학교 교육계획 안내 영상 (선생님용, 1편)"
+  ],
+  "situation": "대사 밑에 작게 깔리는 배경 음악. 48초 토막 넷(A1 → B1 → A2 → B2)을 번갈아 이어 붙인다",
+  "mood": "건반 화음과 부드러운 베이스, 조용하고 가벼움",
+  "loop": true,
+  "loop_note": "48초마다 다음 토막을 겹쳐 놓으면 이어진다(끝 4초는 잔향 꼬리)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/bgm.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 1247371,
+   "mp3_bytes": 1249388
+  },
+  "sha1": "509d309e2a79670019b051833e89bb0cbb0f1a14",
+  "wav_sha1": "27fe561f82ef17237b5f242a2a50ad37568e8b79",
+  "aliases": [
+   "build/bgm/keys_A1.wav"
+  ],
+  "note": "토막마다 16마디(48초) + 잔향 꼬리 4초. 48초마다 다음 토막을 겹쳐 놓으면 끊김 없이 이어진다. 말소리 대역(2~4 kHz)을 조금 비워 두었다."
+ },
+ {
+  "id": "music_bgm_keys_a2",
+  "file": "audio/music/music_bgm_keys_a2.m4a",
+  "files": {
+   "m4a": "audio/music/music_bgm_keys_a2.m4a",
+   "mp3": "audio/music/music_bgm_keys_a2.mp3"
+  },
+  "kind": "음악",
+  "title": "배경 음악 · 건반 A2 (가벼운 판)",
+  "tags": [
+   "배경 음악",
+   "대사 밑",
+   "건반",
+   "로파이",
+   "이어 붙이기"
+  ],
+  "length": 52.0,
+  "tempo": 80,
+  "key": "내림 마 장조",
+  "made_by": "직접 합성: pipeline/bgm.py (곡 'keys') 토막 A2",
+  "status": "쓰임",
+  "used_in": [
+   "학교 교육계획 안내 영상 (선생님용, 1편)"
+  ],
+  "situation": "대사 밑에 작게 깔리는 배경 음악. 48초 토막 넷(A1 → B1 → A2 → B2)을 번갈아 이어 붙인다",
+  "mood": "건반 화음과 부드러운 베이스, 조용하고 가벼움 (다른 화음 진행)",
+  "loop": true,
+  "loop_note": "48초마다 다음 토막을 겹쳐 놓으면 이어진다(끝 4초는 잔향 꼬리)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/bgm.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 1249768,
+   "mp3_bytes": 1249388
+  },
+  "sha1": "ad4c2c38cf0a715e1b5d248bd294aa9c60805a23",
+  "wav_sha1": "078fcd3dece53146eff0cdbe26ca24c54785c7ff",
+  "aliases": [
+   "build/bgm/keys_A2.wav"
+  ],
+  "note": "토막마다 16마디(48초) + 잔향 꼬리 4초. 48초마다 다음 토막을 겹쳐 놓으면 끊김 없이 이어진다. 말소리 대역(2~4 kHz)을 조금 비워 두었다."
+ },
+ {
+  "id": "music_bgm_keys_b1",
+  "file": "audio/music/music_bgm_keys_b1.m4a",
+  "files": {
+   "m4a": "audio/music/music_bgm_keys_b1.m4a",
+   "mp3": "audio/music/music_bgm_keys_b1.mp3"
+  },
+  "kind": "음악",
+  "title": "배경 음악 · 건반 B1 (조금 찬 판)",
+  "tags": [
+   "배경 음악",
+   "대사 밑",
+   "건반",
+   "로파이",
+   "이어 붙이기"
+  ],
+  "length": 52.0,
+  "tempo": 80,
+  "key": "내림 마 장조",
+  "made_by": "직접 합성: pipeline/bgm.py (곡 'keys') 토막 B1",
+  "status": "쓰임",
+  "used_in": [
+   "학교 교육계획 안내 영상 (선생님용, 1편)"
+  ],
+  "situation": "대사 밑에 작게 깔리는 배경 음악. 48초 토막 넷(A1 → B1 → A2 → B2)을 번갈아 이어 붙인다",
+  "mood": "여린 킥과 하이햇이 더해져 한결 리듬감 있음",
+  "loop": true,
+  "loop_note": "48초마다 다음 토막을 겹쳐 놓으면 이어진다(끝 4초는 잔향 꼬리)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/bgm.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 1265699,
+   "mp3_bytes": 1249388
+  },
+  "sha1": "d77917f853bd35c0c504dd72a8b13b93f4c63e30",
+  "wav_sha1": "c814f0d7ad4e9ba3f454e4d790ed4b8c0bf95d84",
+  "aliases": [
+   "build/bgm/keys_B1.wav"
+  ],
+  "note": "토막마다 16마디(48초) + 잔향 꼬리 4초. 48초마다 다음 토막을 겹쳐 놓으면 끊김 없이 이어진다. 말소리 대역(2~4 kHz)을 조금 비워 두었다."
+ },
+ {
+  "id": "music_bgm_keys_b2",
+  "file": "audio/music/music_bgm_keys_b2.m4a",
+  "files": {
+   "m4a": "audio/music/music_bgm_keys_b2.m4a",
+   "mp3": "audio/music/music_bgm_keys_b2.mp3"
+  },
+  "kind": "음악",
+  "title": "배경 음악 · 건반 B2 (조금 찬 판)",
+  "tags": [
+   "배경 음악",
+   "대사 밑",
+   "건반",
+   "로파이",
+   "이어 붙이기"
+  ],
+  "length": 52.0,
+  "tempo": 80,
+  "key": "내림 마 장조",
+  "made_by": "직접 합성: pipeline/bgm.py (곡 'keys') 토막 B2",
+  "status": "쓰임",
+  "used_in": [
+   "학교 교육계획 안내 영상 (선생님용, 1편)"
+  ],
+  "situation": "대사 밑에 작게 깔리는 배경 음악. 48초 토막 넷(A1 → B1 → A2 → B2)을 번갈아 이어 붙인다",
+  "mood": "여린 킥과 하이햇이 더해져 한결 리듬감 있음 (다른 화음 진행)",
+  "loop": true,
+  "loop_note": "48초마다 다음 토막을 겹쳐 놓으면 이어진다(끝 4초는 잔향 꼬리)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/bgm.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 1273693,
+   "mp3_bytes": 1249388
+  },
+  "sha1": "e54cc2c29dbd5eb27c53a24ab8afef8f24ec034d",
+  "wav_sha1": "7476ebaabbfdd237eff236b330ab2b167429723b",
+  "aliases": [
+   "build/bgm/keys_B2.wav"
+  ],
+  "note": "토막마다 16마디(48초) + 잔향 꼬리 4초. 48초마다 다음 토막을 겹쳐 놓으면 끊김 없이 이어진다. 말소리 대역(2~4 kHz)을 조금 비워 두었다."
+ },
+ {
+  "id": "music_kepler_candle_study",
+  "file": "audio/music/music_kepler_candle_study.m4a",
+  "files": {
+   "m4a": "audio/music/music_kepler_candle_study.m4a",
+   "mp3": "audio/music/music_kepler_candle_study.mp3"
+  },
+  "kind": "음악",
+  "title": "촛불 서재(후보 A)",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "하프시코드",
+   "류트",
+   "첼레스타"
+  ],
+  "length": 29.1,
+  "tempo": 72,
+  "key": "라단조 → 바장조",
+  "made_by": "직접 합성: tools/sound/model_kepler/music.py (A)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "케플러가 촛불 켠 서재에서 튀코의 기록을 펼치고 원을 그려 계산하는 장면(대사 밑)",
+  "mood": "차분하고 따뜻한 옛 연구실의 고요함",
+  "loop": false,
+  "loop_note": "끝에서 소리가 잦아들며 페이드아웃(마지막 0.25초 RMS -82.8 dBFS, 처음 0.25초 -22.9 dBFS) — 이어 붙이면 끊김이 들린다. 되풀이하려면 크로스페이드 필요. 화성: Dm–Gm–A–Dm 으로 시작해 F 화음으로 끝남(나란한조라 화성은 이어질 수 있음)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/music.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 704765,
+   "mp3_bytes": 699884
+  },
+  "sha1": "e8cae2cef390bb7d1e4bf17252d593399ffe6802",
+  "wav_sha1": "a83a5bc479d0e83347656e3a5b02879123714db1",
+  "aliases": [
+   "build/model_kepler/sound_pack/music/bgm_candle_study.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 하프시코드 · 류트가 조용히 뜯고 첼레스타가 드문드문 노래하는 옛 서재 분위기. 옛 과학자의 연구실 장면 대사 밑에 깔기"
+ },
+ {
+  "id": "music_kepler_starry_night",
+  "file": "audio/music/music_kepler_starry_night.m4a",
+  "files": {
+   "m4a": "audio/music/music_kepler_starry_night.m4a",
+   "mp3": "audio/music/music_kepler_starry_night.mp3"
+  },
+  "kind": "음악",
+  "title": "별 헤는 밤(후보 B)",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "하프",
+   "현 패드",
+   "비브라폰",
+   "첼레스타"
+  ],
+  "length": 30.89,
+  "tempo": 66,
+  "key": "사장조",
+  "made_by": "직접 합성: tools/sound/model_kepler/music.py (B)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "밤바다의 섬 천문대에서 밤마다 화성의 위치를 재는 장면(대사 밑)",
+  "mood": "넓고 고요한 밤하늘, 신비롭고 맑음",
+  "loop": false,
+  "loop_note": "끝에서 소리가 잦아들며 페이드아웃(마지막 0.25초 RMS -80.9 dBFS, 처음 0.25초 -31.7 dBFS) — 이어 붙이면 끊김이 들린다. 되풀이하려면 크로스페이드 필요. 화성: G 화음으로 시작해 Dsus4→D→G 로 끝남(화성은 처음과 맞물림)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/music.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 747199,
+   "mp3_bytes": 743084
+  },
+  "sha1": "6d42acc09ea984182fbc98007fcd26428eb53731",
+  "wav_sha1": "5f3e9c263f5e4e87a2e12c2069d101833c5d1d77",
+  "aliases": [
+   "build/model_kepler/sound_pack/music/bgm_starry_night.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 하프 아르페지오 위에 현 패드가 깔리고 유리 종이 반짝이는 고요한 밤하늘 분위기. 별 관측 · 밤 장면 대사 밑에"
+ },
+ {
+  "id": "music_kepler_clock_workshop",
+  "file": "audio/music/music_kepler_clock_workshop.m4a",
+  "files": {
+   "m4a": "audio/music/music_kepler_clock_workshop.m4a",
+   "mp3": "audio/music/music_kepler_clock_workshop.mp3"
+  },
+  "kind": "음악",
+  "title": "옛 시계 공방(후보 C)",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "피치카토 현",
+   "마림바",
+   "우드블록",
+   "첼로"
+  ],
+  "length": 29.9,
+  "tempo": 92,
+  "key": "가단조 → 다장조",
+  "made_by": "직접 합성: tools/sound/model_kepler/music.py (C)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "계산을 고치고 맞춰 보기를 되풀이하는 장면(대사 밑)",
+  "mood": "또박또박 걷는 듯한 리듬, 호기심과 가벼운 장난기",
+  "loop": false,
+  "loop_note": "끝에서 소리가 잦아들며 페이드아웃(마지막 0.25초 RMS -57.4 dBFS, 처음 0.25초 -30.0 dBFS) — 이어 붙이면 끊김이 들린다. 되풀이하려면 크로스페이드 필요. 화성: Am 으로 시작해 C 화음으로 끝남",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/music.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 730989,
+   "mp3_bytes": 718892
+  },
+  "sha1": "3d886bb1a17f533528b603ecbce9491782be1e3e",
+  "wav_sha1": "d74db1a2524c227379c3b4bdd5814cd22e72e0d7",
+  "aliases": [
+   "build/model_kepler/sound_pack/music/bgm_clock_workshop.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 피치카토 걷는 베이스와 우드블록 째깍, 마림바 동기가 올라가는 부지런한 공방 분위기. 측정 · 계산 장면 대사 밑에"
+ },
+ {
+  "id": "music_kepler_classroom_light",
+  "file": "audio/music/music_kepler_classroom_light.m4a",
+  "files": {
+   "m4a": "audio/music/music_kepler_classroom_light.m4a",
+   "mp3": "audio/music/music_kepler_classroom_light.mp3"
+  },
+  "kind": "음악",
+  "title": "교실 음악",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "마림바",
+   "피치카토 현",
+   "우드블록"
+  ],
+  "length": 15.0,
+  "tempo": 88,
+  "key": "다장조",
+  "made_by": "직접 합성: tools/sound/model_kepler/music.py (class)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "교실에서 선생님과 학생이 이야기하는 처음과 끝(대사 밑)",
+  "mood": "가볍고 밝은 낮 교실",
+  "loop": false,
+  "loop_note": "끝에서 소리가 잦아들며 페이드아웃(마지막 0.25초 RMS -70.4 dBFS, 처음 0.25초 -24.2 dBFS) — 이어 붙이면 끊김이 들린다. 되풀이하려면 크로스페이드 필요. 화성: C 로 시작해 C 마림바 트레몰로로 끝남(화성은 맞물림)",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/music.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 369726,
+   "mp3_bytes": 361196
+  },
+  "sha1": "9a7384eabb6d36ad2e29b7b69b98ae406bdefd07",
+  "wav_sha1": "b27bafdc3d0fe40a0ef8125b610341e7f6245732",
+  "aliases": [
+   "build/model_kepler/sound_pack/music/bgm_classroom_light.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 나무 건반과 피치카토가 통통 튀는 밝은 15초. 교실 장면 시작 · 장면 사이 연결에"
+ },
+ {
+  "id": "music_kepler_sting_discovery",
+  "file": "audio/music/music_kepler_sting_discovery.m4a",
+  "files": {
+   "m4a": "audio/music/music_kepler_sting_discovery.m4a",
+   "mp3": "audio/music/music_kepler_sting_discovery.mp3"
+  },
+  "kind": "음악",
+  "title": "발견의 순간",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "현 패드",
+   "하프",
+   "첼레스타"
+  ],
+  "length": 10.0,
+  "tempo": null,
+  "key": "바장조(music.py disc --shift 로 조옮김 가능)",
+  "made_by": "직접 합성: tools/sound/model_kepler/music.py (disc)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "원 대신 타원으로 바꾸자 기록이 딱 맞아떨어지는 순간(10초)",
+  "mood": "차오르는 기쁨, 발견의 순간",
+  "loop": false,
+  "loop_note": "한 번 울리고 끝나는 짧은 소리(처음 0.25초 -55.9 dBFS 로 차오름, 끝 -63.5 dBFS 로 잦아듦).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/music.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 243123,
+   "mp3_bytes": 241388
+  },
+  "sha1": "475ab121114989bc5de6841b93a333dfa20a1e3c",
+  "wav_sha1": "87798a767a772bdd931a86ffa450d8c3c3a65a65",
+  "aliases": [
+   "build/model_kepler/sound_pack/music/sting_discovery.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 현 패드가 차오르고 하프가 두 옥타브 반을 훑어 올라가 바장조 화음과 종에 닿는 10초. 법칙을 찾아낸 순간에 한 번"
+ },
+ {
+  "id": "sfx_kepler_flashlight_click",
+  "file": "audio/sfx/sfx_kepler_flashlight_click.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_flashlight_click.m4a",
+   "mp3": "audio/sfx/sfx_kepler_flashlight_click.mp3"
+  },
+  "kind": "효과음",
+  "title": "손전등 딸깍",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.51,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (01)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "선생님이 손전등을 켜며 옛날이야기 속으로 들어갈 때",
+  "mood": "짧고 또렷한 딸깍",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 11991,
+   "mp3_bytes": 13868
+  },
+  "sha1": "56ce0ea354bcfa03430665173e9a09cc7b8cab90",
+  "wav_sha1": "05a47a2b77903053ba52e70d3573a1fe2277ea1d",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_flashlight_click.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 플라스틱 스위치가 눌리고 걸리는 두 겹 소리. 초롱 쌤 손전등을 켤 때"
+ },
+ {
+  "id": "sfx_kepler_stardust",
+  "file": "audio/sfx/sfx_kepler_stardust.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_stardust.m4a",
+   "mp3": "audio/sfx/sfx_kepler_stardust.mp3"
+  },
+  "kind": "효과음",
+  "title": "별가루",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.5,
+  "tempo": null,
+  "key": "라장조 오음 음계",
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (02)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "손전등 불빛이 커지며 이야기 세계가 열릴 때",
+  "mood": "반짝이는 별가루, 동화 같은 시작",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 36722,
+   "mp3_bytes": 37484
+  },
+  "sha1": "289d37612560f982d4c78fb3eb7dc3d3d82e2ce3",
+  "wav_sha1": "245399549b2c7fa67aa7ea6b4d63a2d6df948000",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_stardust.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 높은 첼레스타 · 종이 라장조 오음 음계로 흩어져 내려앉음. 반짝 효과 · 별이 나타날 때"
+ },
+ {
+  "id": "sfx_kepler_quill_dot",
+  "file": "audio/sfx/sfx_kepler_quill_dot.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_quill_dot.m4a",
+   "mp3": "audio/sfx/sfx_kepler_quill_dot.mp3"
+  },
+  "kind": "효과음",
+  "title": "깃펜 점 찍기",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.45,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (03)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "관측 노트에 화성의 위치를 점으로 찍을 때",
+  "mood": "작고 단정한 톡",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 10398,
+   "mp3_bytes": 12140
+  },
+  "sha1": "7753bdedfb20a59716b7a9e784dcbfeef938730e",
+  "wav_sha1": "029a7876f886c756ef3f970a380c7e24da5c147e",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_quill_dot.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 종이에 펜 끝이 톡 닿는 작은 소리. 그래프에 점을 찍을 때"
+ },
+ {
+  "id": "sfx_kepler_quill_scratch",
+  "file": "audio/sfx/sfx_kepler_quill_scratch.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_quill_scratch.m4a",
+   "mp3": "audio/sfx/sfx_kepler_quill_scratch.mp3"
+  },
+  "kind": "효과음",
+  "title": "깃펜 긁기",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.2,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (04)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "깃펜으로 계산을 적어 나갈 때",
+  "mood": "사각사각, 바쁜 손",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 30011,
+   "mp3_bytes": 29996
+  },
+  "sha1": "fb121abc7d3ab9978d4485f08d617a1c93ef3159",
+  "wav_sha1": "f734f352104cfbcafe788819daf89beb4a043cc2",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_quill_scratch.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 종이 결을 따라 사각사각 두 획. 기록하거나 선을 그을 때"
+ },
+ {
+  "id": "sfx_kepler_ring_stamp",
+  "file": "audio/sfx/sfx_kepler_ring_stamp.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_ring_stamp.m4a",
+   "mp3": "audio/sfx/sfx_kepler_ring_stamp.mp3"
+  },
+  "kind": "효과음",
+  "title": "고리 도장",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.65,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (05)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "계산한 위치에 고리 도장을 찍을 때",
+  "mood": "나무 도장을 탁 찍는 소리, 결정의 순간",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 15490,
+   "mp3_bytes": 17324
+  },
+  "sha1": "cba40123c88cbb0f9a511c0675409a5b08ff20b1",
+  "wav_sha1": "ed5168cb91e7471dd52b92a9b524a58df08ffa95",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_ring_stamp.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 나무 손잡이 탁 + 책상에 닿는 낮은 툭. 도장 · 표시를 찍을 때"
+ },
+ {
+  "id": "sfx_kepler_page_turn",
+  "file": "audio/sfx/sfx_kepler_page_turn.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_page_turn.m4a",
+   "mp3": "audio/sfx/sfx_kepler_page_turn.mp3"
+  },
+  "kind": "효과음",
+  "title": "종이 넘김",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.95,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (06)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "노트를 넘겨 실제 기록을 확인할 때",
+  "mood": "사락 넘어가는 종이 소리, 기대",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 22541,
+   "mp3_bytes": 24236
+  },
+  "sha1": "8aba035114cc8111d3cd1fd7cb8a885da6a15bcb",
+  "wav_sha1": "915bebfb51750b870d702799d31e0fe238343ef9",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_page_turn.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 사르륵 들리다 마지막에 살짝 팔락. 책장 · 공책을 넘길 때"
+ },
+ {
+  "id": "sfx_kepler_nail_tap",
+  "file": "audio/sfx/sfx_kepler_nail_tap.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_nail_tap.m4a",
+   "mp3": "audio/sfx/sfx_kepler_nail_tap.mp3"
+  },
+  "kind": "효과음",
+  "title": "못 박기",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.6,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (07)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "양피지에 못을 박고 실을 걸 때",
+  "mood": "작고 단단한 톡",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 13705,
+   "mp3_bytes": 15596
+  },
+  "sha1": "bfb7a001eb169096f2de7b9f4f84b85d4d4d0e58",
+  "wav_sha1": "1686f74b9e49b488cc590cad978f31d54e24af0b",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_nail_tap.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 작은 망치가 못머리를 톡 + 나무판 울림. 못(고정점)을 박을 때"
+ },
+ {
+  "id": "sfx_kepler_string_ting",
+  "file": "audio/sfx/sfx_kepler_string_ting.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_string_ting.m4a",
+   "mp3": "audio/sfx/sfx_kepler_string_ting.mp3"
+  },
+  "kind": "효과음",
+  "title": "실 팅",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.25,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (08)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "실을 팽팽하게 당겨 원 · 타원을 그릴 때",
+  "mood": "팽팽한 줄의 맑은 팅",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 30829,
+   "mp3_bytes": 31724
+  },
+  "sha1": "c6147625ccb43c0e9ec79737934c78f18dc836dc",
+  "wav_sha1": "db6f0ff051e257101ef04f30c07951afe4e4fc52",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_string_ting.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 실이 당겨지며 음이 살짝 올랐다 맑게 팅. 실 · 줄이 팽팽해질 때"
+ },
+ {
+  "id": "sfx_kepler_magnifier_swoosh",
+  "file": "audio/sfx/sfx_kepler_magnifier_swoosh.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_magnifier_swoosh.m4a",
+   "mp3": "audio/sfx/sfx_kepler_magnifier_swoosh.mp3"
+  },
+  "kind": "효과음",
+  "title": "돋보기 슈웅",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.2,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (09)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "돋보기를 대어 화면이 크게 확대될 때",
+  "mood": "음이 쑥 올라가는 슈웅 소리",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 28578,
+   "mp3_bytes": 29996
+  },
+  "sha1": "511000089ecbfcbea7574ede2b86d8287ad757e1",
+  "wav_sha1": "093d7af225b3488511fd36af82d44f3fb087acf0",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_magnifier_swoosh.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 부드러운 바람이 위로 훑어 오름 + 옅은 휘파람. 확대 · 장면 전환에"
+ },
+ {
+  "id": "sfx_kepler_ruler_tick",
+  "file": "audio/sfx/sfx_kepler_ruler_tick.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_ruler_tick.m4a",
+   "mp3": "audio/sfx/sfx_kepler_ruler_tick.mp3"
+  },
+  "kind": "효과음",
+  "title": "눈금 틱",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 0.37,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (10)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "눈금을 한 칸씩 짚으며 셀 때(음악이 멈춘 고요 속에서)",
+  "mood": "작고 긴장된 틱",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 8767,
+   "mp3_bytes": 10412
+  },
+  "sha1": "89fa6fd8a258285016ea5daf8ef37b6cde545203",
+  "wav_sha1": "2a236121193419144817fb18533a528baaea500a",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_ruler_tick.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 마른 나무 막대가 눈금자를 틱. 하나씩 셀 때 여러 번 이어 써도 됨"
+ },
+ {
+  "id": "sfx_kepler_nail_pull_unwind",
+  "file": "audio/sfx/sfx_kepler_nail_pull_unwind.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_nail_pull_unwind.m4a",
+   "mp3": "audio/sfx/sfx_kepler_nail_pull_unwind.mp3"
+  },
+  "kind": "효과음",
+  "title": "못 뽑힘 · 실 풀림",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.5,
+  "tempo": null,
+  "key": null,
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (11)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "믿던 원을 포기하고 못을 뽑아 실을 풀 때",
+  "mood": "아쉬움과 결단, 풀려나가는 소리",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 37928,
+   "mp3_bytes": 37484
+  },
+  "sha1": "2353b335148333bd68a4e2d81043820043e8160f",
+  "wav_sha1": "a44379cb1a4c4aeb45e765a31680238896c440d2",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_nail_pull_unwind.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 못이 끽 빠지며 뽁 → 느슨해진 실이 낮게 흔들리며 풀림. 가정이 무너질 때"
+ },
+ {
+  "id": "sfx_kepler_chime_ding",
+  "file": "audio/sfx/sfx_kepler_chime_ding.m4a",
+  "files": {
+   "m4a": "audio/sfx/sfx_kepler_chime_ding.m4a",
+   "mp3": "audio/sfx/sfx_kepler_chime_ding.mp3"
+  },
+  "kind": "효과음",
+  "title": "차임 딩",
+  "tags": [
+   "극장판",
+   "모델이란 무엇인가",
+   "케플러",
+   "효과음"
+  ],
+  "length": 1.3,
+  "tempo": null,
+  "key": "A5(라)",
+  "made_by": "직접 합성: tools/sound/model_kepler/sfx.py (12)",
+  "status": "후보",
+  "used_in": [
+   "극장판 「모델이란 무엇인가」(두근두근러닝, 2026, 제작 중)"
+  ],
+  "situation": "계산한 고리 안에 실제 기록 점이 쏙 들어올 때",
+  "mood": "맑은 차임, 맞았다는 기쁨",
+  "loop": false,
+  "loop_note": "한 번 울리는 효과음(소리가 짧게 잦아들어 끝남).",
+  "tool": "직접 합성(numpy, 외부 음원 · 샘플 없음)",
+  "code": [
+   "tools/sound/model_kepler/sfx.py",
+   "tools/sound/outro_synth2.py",
+   "tools/sound/outro_synth.py"
+  ],
+  "made": "2026-11-18 (저장소에 넣은 날)",
+  "size": {
+   "bytes": 32925,
+   "mp3_bytes": 32876
+  },
+  "sha1": "2e74fa655e91945a11685686c7c4fd2670eb67c2",
+  "wav_sha1": "a4666fe7fb7a230f92a5835226edfcc97c674a7f",
+  "aliases": [
+   "build/model_kepler/sound_pack/sfx/sfx_chime_ding.wav"
+  ],
+  "note": "극장판 「모델이란 무엇인가」 소리 묶음(제작 중, PD님이 아직 고르지 않은 후보). 라 음(A5) 바탕의 맑은 차임. 점이 제자리에 들어맞을 때 · 정답"
  }
 ]

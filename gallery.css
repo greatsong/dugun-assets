@@ -100,6 +100,11 @@ a.hchip:hover { text-decoration: none; border-color: var(--blue-line); backgroun
 .k-class { --c: #6366F1; }
 .k-show { --c: #C026D3; --cd: #86198F; --cs: #FDF4FF; }
 .k-game { --c: #0EA5E9; --cd: #075985; --cs: #EAF6FD; }
+.k-pop { --c: #F43F5E; --cd: #9F1239; --cs: #FFF1F2; }
+.k-calm { --c: #14B8A6; --cd: #115E59; --cs: #EDFAF8; }
+.k-power { --c: #F97316; --cd: #9A3412; --cs: #FFF4EB; }
+.k-study { --c: #8B5CF6; --cd: #5B21B6; --cs: #F5F3FF; }
+.kinds .brk { flex-basis: 100%; height: 0; }
 
 /* ── 고르기 · 받기 줄 ── */
 .actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 4px; }
@@ -318,6 +323,7 @@ pre { white-space: pre-wrap; word-break: break-word; font: 500 var(--fs-sm)/1.6 
   .kinds { flex-wrap: nowrap; overflow-x: auto; margin: 10px -16px 0; padding: 2px 16px 8px; scroll-snap-type: x proximity; scrollbar-width: none; }
   .kinds::-webkit-scrollbar { display: none; }
   .kinds > * { scroll-snap-align: start; flex: none; }
+  .kinds .brk { display: none; }
   .kchip-btn { min-height: 44px; }
   .actions { padding-top: 10px; gap: 8px; }
   .sel-row, .dl-row { gap: 6px; flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 2px 16px 4px; width: calc(100% + 32px); scrollbar-width: none; }

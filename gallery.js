@@ -4,14 +4,20 @@
   var IMG_KINDS = ["배경", "소품", "캐릭터", "아이콘", "재질", "효과"];
   var SND_KINDS = ["음악", "효과음"];
   var KCLS = { "전체": "k-all", "배경": "k-bg", "소품": "k-prop", "캐릭터": "k-char", "아이콘": "k-icon", "재질": "k-tex", "효과": "k-fx",
-    "음악": "k-music", "효과음": "k-sfx", "반복용": "k-loop", "교실": "k-class", "예능": "k-show", "게임": "k-game" };
+    "음악": "k-music", "효과음": "k-sfx", "반복용": "k-loop", "교실": "k-class", "예능": "k-show", "게임": "k-game",
+    "유행": "k-pop", "잔잔": "k-calm", "활기": "k-power", "공부": "k-study" };
   /* 소리만 거르는 칩: 이름 → 거르는 법 */
   var SND_FILTERS = {
     "반복용": function (e) { return e.loop === true || (e.versions || []).some(function (v) { return v.loop; }); },
     "교실": function (e) { return e.style === "교실"; },
     "예능": function (e) { return e.style === "예능"; },
-    "게임": function (e) { return e.style === "게임"; }
+    "게임": function (e) { return e.style === "게임"; },
+    "유행": function (e) { return e.style === "유행"; },
+    "잔잔": function (e) { return e.style === "잔잔"; },
+    "활기": function (e) { return e.style === "활기"; },
+    "공부": function (e) { return e.style === "공부"; }
   };
+  var LOOP_KIND = "반복용";   // 소리 칩 가운데 묶음(style)이 아닌 것
   var all = [], byId = {}, shown = [], kind = "전체", view = "grid", cur = -1, waves = {};
   var selected = new Set(), verSel = {};
   var $ = function (id) { return document.getElementById(id); };
@@ -73,11 +79,12 @@
     var c = curVer(e);
     return c.title ? '<p class="ver-note">' + esc(c.label) + " 버전 · " + esc(c.title) + "</p>" : "";
   }
-  function sndDl(e, cls) {
+  function sndDl(e, cls) {      // 있는 파일 꼴만 단추로(새로 넣은 곡은 MP3 하나)
     var c = curVer(e), f = c.files;
-    return '<a class="' + cls + '" href="' + esc(f.m4a) + '" download="' + esc(base(f.m4a)) + '">' + ICON.dl + "M4A 받기</a>" +
+    return (f.m4a ? '<a class="' + cls + '" href="' + esc(f.m4a) + '" download="' + esc(base(f.m4a)) + '">' + ICON.dl + "M4A 받기</a>" : "") +
       (f.mp3 ? '<a class="' + cls + '" href="' + esc(f.mp3) + '" download="' + esc(base(f.mp3)) + '">' + ICON.dl + "MP3 받기</a>" : "");
   }
+  function playUrl(v) { return v.files.m4a || v.files.mp3 || v.file; }
   function statusChip(e) {
     var c = curVer(e), s = (c.ent || e).status || ""; if (!s) return "";
     var c = s === "쓰임" ? "st-used" : s.indexOf("후보") === 0 ? "st-cand" : "st-new";
@@ -125,7 +132,7 @@
     }
   }
   function playHtml(v, loop) {
-    player.pause(); player.src = v.files.m4a; player.loop = !!loop;
+    player.pause(); player.src = playUrl(v); player.loop = !!loop;
     playing.mode = "html";
     var pr = player.play();
     var started = function () { if (playing && playing.vid === v.id) { playing.state = "on"; setBtns(); tick(); } };
@@ -133,16 +140,19 @@
   }
   function playLoop(v) {
     try { actx = actx || new AC(); if (actx.state === "suspended") actx.resume(); } catch (x) { return playHtml(v, true); }
-    var url = v.files.m4a;
+    var url = playUrl(v);
     bufs[url] = bufs[url] || fetch(url).then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); }).then(decode);
     bufs[url].then(function (buf) {
       if (!playing || playing.vid !== v.id) return;
-      var want = Number(v.length) || buf.duration;
-      if (Math.abs(buf.duration - want) > 0.02) return playHtml(v, true);     // 앞뒤에 빈 소리가 붙은 채 풀리면 audio 반복으로
-      /* 풀린 길이가 목록의 길이와 0.02초 안에서 같으면 앞뒤 빈 소리 없이 풀린 것 → 풀린 길이 그대로 한 바퀴로 쓴다(목록 길이는 반올림 값) */
-      if (!buf._smooth) { smoothSeam(buf, buf.length); buf._smooth = true; }
-      src = actx.createBufferSource(); src.buffer = buf; src.loop = true; src.loopStart = 0; src.loopEnd = buf.duration;
-      playing.len = buf.duration;
+      /* 한 바퀴 길이: 목록에 원본 표본 수(samples, 48 kHz)가 있으면 그 길이(mp3는 끝에 몇 표본이 남아 풀리는 일이 있다), 없으면 풀린 길이.
+         풀린 길이가 0.02초 넘게 다르면(앞뒤 여백이 붙은 채 풀림) audio 반복으로 */
+      var exact = v.samples ? v.samples / 48000 : 0;
+      var want = exact || Number(v.length) || buf.duration;
+      if (Math.abs(buf.duration - want) > 0.02) return playHtml(v, true);
+      var end = exact ? Math.min(exact, buf.duration) : buf.duration;
+      if (!buf._smooth) { smoothSeam(buf, Math.round(end * buf.sampleRate)); buf._smooth = true; }
+      src = actx.createBufferSource(); src.buffer = buf; src.loop = true; src.loopStart = 0; src.loopEnd = end;
+      playing.len = end;
       src.connect(actx.destination); src.start(); t0 = actx.currentTime;
       playing.mode = "wa"; playing.state = "on"; setBtns(); tick();
     }).catch(function () { delete bufs[url]; if (playing && playing.vid === v.id) playHtml(v, true); });
@@ -207,7 +217,8 @@
         (k === "반복용" ? ICON.loop.replace('class="ico"', 'class="ico" style="width:16px;height:16px;color:var(--c)"') : "<i></i>") + k + "<small>" + c + "</small></button>";
     };
     n.innerHTML = chip("전체") + '<span class="grp">그림</span>' + IMG_KINDS.map(chip).join("") +
-      '<span class="grp">소리</span>' + SND_KINDS.map(chip).join("") + Object.keys(SND_FILTERS).map(chip).join("");
+      '<span class="grp">소리</span>' + SND_KINDS.map(chip).join("") + chip(LOOP_KIND) +
+      '<span class="brk"></span><span class="grp">묶음</span>' + Object.keys(SND_FILTERS).filter(function (k) { return k !== LOOP_KIND; }).map(chip).join("");
     n.onclick = function (ev) {
       var b = ev.target.closest("button"); if (!b) return;
       kind = b.dataset.k;
@@ -442,10 +453,11 @@
       : longer ? ["늘린 판(길이별 · 반복용) 보기 →", longer.id] : (e.loop_version && !vs ? ["끊김 없이 되풀이하는 반복용 버전 보기 →", e.loop_version] : null);
     $("v-jump").hidden = !jump;
     if (jump) { $("v-jump").textContent = jump[0]; $("v-jump").dataset.id = jump[1]; }
-    var dl = $("v-dl"); dl.href = f.m4a; dl.setAttribute("download", base(f.m4a));
-    dl.innerHTML = ICON.dl + "M4A 받기" + (c.bytes ? " · " + mb(c.bytes) : "");
-    var d2 = $("v-dl2"); d2.hidden = !f.mp3;
-    if (f.mp3) { d2.href = f.mp3; d2.setAttribute("download", base(f.mp3)); d2.innerHTML = ICON.dl + "MP3 받기" + (c.mp3_bytes ? " · " + mb(c.mp3_bytes) : ""); }
+    var dl = $("v-dl"), first = f.m4a || f.mp3;
+    dl.href = first; dl.setAttribute("download", base(first));
+    dl.innerHTML = ICON.dl + (f.m4a ? "M4A" : "MP3") + " 받기" + (c.bytes ? " · " + mb(c.bytes) : "");
+    var d2 = $("v-dl2"); d2.hidden = !(f.m4a && f.mp3);
+    if (f.m4a && f.mp3) { d2.href = f.mp3; d2.setAttribute("download", base(f.mp3)); d2.innerHTML = ICON.dl + "MP3 받기" + (c.mp3_bytes ? " · " + mb(c.mp3_bytes) : ""); }
     var sr = c.ent || e;
     $("v-meta").innerHTML = metaHTML([
       ["종류", e.kind + (e.style ? " · " + e.style : "")],

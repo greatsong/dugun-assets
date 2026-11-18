@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>두근두근러닝 그림 모음</title>
+<meta name="description" content="두근두근러닝 수업 영상에 쓴 배경 · 소품 · 캐릭터 그림을 보고 내려받는 곳 (CC BY-NC 4.0)">
+<link rel="stylesheet" href="gallery.css">
+<script src="vendor/jszip.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>두근두근러닝 그림 모음</h1>
+    <p class="lead">수업 영상을 만들며 그린 배경 · 소품 · 캐릭터 그림입니다. 그림을 누르면 크게 보고 다운로드할 수 있어요.</p>
+    <p class="lic">비상업 목적 · 출처 표시 「두근두근러닝(greatsong)」 — <a href="https://github.com/greatsong/dugun-assets/blob/main/LICENSE">CC BY-NC 4.0</a>
+      · <a href="https://github.com/greatsong/dugun-assets">GitHub 저장소</a></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="bar-row">
+      <label class="search">
+        <span class="sr">그림 검색</span>
+        <input id="q" type="search" placeholder="그림 검색 (예: 교실, 얼음, 별, 선생님)" autocomplete="off">
+      </label>
+      <div class="tools">
+        <span class="stats" id="stats">불러오는 중…</span>
+        <div class="seg" role="group" aria-label="보기 방식">
+          <button type="button" data-v="grid" aria-pressed="true">그리드</button>
+          <button type="button" data-v="table" aria-pressed="false">문서</button>
+        </div>
+        <a class="pill" href="catalog.csv" download>CSV 다운로드</a>
+        <a class="pill" href="catalog.json" download>JSON 다운로드</a>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="kinds" id="kinds" role="group" aria-label="종류 고르기"></div>
+      <div class="tools">
+        <button type="button" class="pill strong" id="kindZip" hidden></button>
+        <a class="pill strong" id="allZip" href="https://github.com/greatsong/dugun-assets/archive/refs/heads/main.zip">전체 다운로드 (ZIP)</a>
+      </div>
+    </div>
+    <div class="bar-row sel-row">
+      <span class="sel-count" id="selCount">0장 선택</span>
+      <button type="button" class="pill" id="selAll">보이는 그림 전체 선택</button>
+      <button type="button" class="pill" id="selClear">선택 해제</button>
+      <button type="button" class="pill blue" id="selZip">선택 다운로드 (ZIP)</button>
+      <span class="hint">한 번에 50장 이하로 고르는 게 좋아요.</span>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <p class="empty" id="empty" hidden>찾는 그림이 없어요. 다른 말로 검색해 보세요.</p>
+  <ul class="grid" id="grid"></ul>
+  <div class="table-wrap" id="tableWrap" hidden>
+    <table class="doc">
+      <thead><tr><th>그림</th><th>이름</th><th>파일 이름</th><th>종류</th><th>검색어</th><th>쓰인 영상</th><th>다운로드</th></tr></thead>
+      <tbody id="docBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <p>그림을 쓸 때는 출처를 이렇게 적어 주세요: <b>그림: 두근두근러닝(greatsong), CC BY-NC 4.0 — https://github.com/greatsong/dugun-assets</b></p>
+  <p>이 그림은 AI로 그리고 사람이 골라 다듬었습니다.</p>
+  <p>아이콘이 필요하다면 → <a href="https://greatsong.github.io/info-class-svg/">교육용 SVG 아이콘 라이브러리</a></p>
+</footer>
+
+<dialog id="view" aria-labelledby="v-title">
+  <div class="v-in">
+    <div class="v-img">
+      <img id="v-img" alt="">
+      <button class="nav prev" id="v-prev" type="button" aria-label="이전 그림">‹</button>
+      <button class="nav next" id="v-next" type="button" aria-label="다음 그림">›</button>
+    </div>
+    <div class="v-info">
+      <div class="v-head">
+        <h2 id="v-title"></h2>
+        <button class="close" id="v-close" type="button" aria-label="닫기">✕</button>
+      </div>
+      <a class="dl-big" id="v-dl" download>다운로드</a>
+      <label class="v-sel"><input type="checkbox" id="v-sel"> 선택에 담기</label>
+      <dl class="meta">
+        <dt>종류</dt><dd id="v-kind"></dd>
+        <dt>검색어</dt><dd id="v-tags"></dd>
+        <dt>크기</dt><dd id="v-size"></dd>
+        <dt>그린 도구</dt><dd id="v-tool"></dd>
+        <dt>쓰인 영상</dt><dd id="v-used"></dd>
+        <dt>파일 이름</dt><dd id="v-file" class="mono"></dd>
+      </dl>
+      <details id="v-pwrap">
+        <summary>프롬프트 보기</summary>
+        <pre id="v-prompt"></pre>
+        <button type="button" class="copy" id="v-copy">복사</button>
+      </details>
+      <div id="v-vars" hidden>
+        <h3>같은 그림의 다른 버전</h3>
+        <ul class="vars" id="v-varlist"></ul>
+      </div>
+      <p class="keys">키보드: ← → 이전·다음 그림 · Esc 닫기</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="progress" id="progress" hidden>
+  <div class="progress-box" role="status" aria-live="polite">
+    <h3 id="pTitle">다운로드 준비 중…</h3>
+    <div class="pbar"><div class="pfill" id="pFill"></div></div>
+    <p id="pText">0 / 0</p>
+  </div>
+</div>
+
+<script src="gallery.js"></script>
+</body>
+</html>
